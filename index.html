@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sterling Legal Advisory LLP — International Law Firm</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Sterling Legal Advisory LLP — international law firm specializing in cross-border disputes, arbitration, asset recovery, offshore litigation and corporate investigations.">
+  <meta name="keywords" content="Sterling Legal, international law firm, arbitration, cross-border disputes, asset recovery, corporate investigations, offshore litigation, BVI disputes, fraud investigations, financial law, asset protection">
+  
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Sterling Legal Advisory LLP">
+  <meta property="og:description" content="International legal services — disputes, arbitration, investigations, asset protection.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="Logo.png">
+  <meta property="og:url" content="https://sterlinglegal.uk">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.6;
+      background: #fafafa;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* Header */
+    header {
+      background: linear-gradient(90deg, #002147, #00152e);
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header img.logo { max-width: 180px; height: auto; }
+    nav { display: flex; gap: 20px; }
+    nav a { color: #fff; font-weight: bold; transition: color 0.3s; }
+    nav a:hover { color: #c0392b; }
+
+    /* Mobile menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .menu-toggle span {
+      background: #fff;
+      height: 3px;
+      width: 25px;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+    @media(max-width:768px) {
+      nav { display: none; flex-direction: column; background: #00152e; position: absolute; top: 60px; right: 0; width: 200px; }
+      nav.active { display: flex; }
+      .menu-toggle { display: flex; }
+    }
+
+    /* Hero */
+    .hero {
+      background: url('Fon.jpg') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+    }
+    .hero h2 { font-size: 2.2rem; margin-bottom: 20px; animation: fadeIn 2s; }
+    .hero p { max-width: 800px; margin: 0 auto 20px; animation: fadeIn 3s; }
+    .hero button {
+      font-size: 1.2rem;
+      padding: 12px 24px;
+      background-color: #c0392b;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .hero button:hover { background-color: #a93226; }
+
+    /* Sections */
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+    h2.section-title { color:#002147; text-align:center; margin-bottom: 20px; }
+
+    .services, .team, .news, .why-us { 
+      display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top:30px; 
+    }
+    .service, .member, .news-item {
+      flex: 1 1 250px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: #fff;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+    .service:hover, .news-item:hover { 
+      transform: translateY(-5px); 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+      border-color: #c0392b; 
+    }
+    .service h3, .news-item h3 { color: #c0392b; }
+
+    .member img { border-radius: 50%; width: 150px; height: 150px; object-fit: cover; margin-bottom: 10px; border:3px solid #c0392b; }
+
+    /* Contact */
+    .contact { padding: 40px 20px; background: #f1f1f1; text-align:center; }
+    .contact form { max-width: 500px; margin: 20px auto; text-align:left; }
+    .contact label { display:block; margin:10px 0 5px; }
+    .contact input, .contact textarea {
+      width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;
+    }
+    .contact button {
+      margin-top:15px;
+      padding:10px 20px;
+      background:#c0392b; color:#fff; border:none; border-radius:5px; cursor:pointer;
+    }
+    .contact button:hover { background:#a93226; }
+
+    footer {
+      background: #002147;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+    footer a { color: #c0c0c0; margin: 0 10px; }
+    footer a:hover { color: #fff; }
+
+    @keyframes fadeIn {
+      from {opacity:0;}
+      to {opacity:1;}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img class="logo" src="Logo.png" alt="Sterling Legal Advisory LLP Logo" onerror="this.onerror=null; this.src='Logo1.png';">
+    <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">
+      <span></span><span></span><span></span>
+    </div>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#services">Services</a>
+      <a href="#news">News</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contacts</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <h2>Welcome to Sterling Legal Advisory LLP</h2>
+    <p>We are an international law firm, part of the Sterling Legal network. Our mission is to protect clients’ interests in cross-border disputes, arbitration, corporate investigations, and asset protection worldwide.</p>
+    <button onclick="window.location.href='#contact'">Contact Us</button>
+  </section>
+
+  <section id="about" class="container">
+    <h2 class="section-title">About Us</h2>
+    <p>Sterling Legal Advisory LLP combines international experience with a tailored approach to each client. We work with governments, financial institutions, and private businesses in over 20 jurisdictions. Our goal is to deliver practical solutions, defend your interests, and ensure legal security in complex environments.</p>
+  </section>
+
+  <section id="why-us" class="container">
+    <h2 class="section-title">Why Choose Us</h2>
+    <div class="why-us">
+      <div class="service">
+        <h3>International Expertise</h3>
+        <p>We handle cross-border disputes and arbitration cases worldwide.</p>
+      </div>
+      <div class="service">
+        <h3>Trusted Reputation</h3>
+        <p>We are part of the international Sterling Legal network.</p>
+      </div>
+      <div class="service">
+        <h3>Comprehensive Solutions</h3>
+        <p>We combine legal expertise with a strategic business approach.</p>
+      </div>
+      <div class="service">
+        <h3>Confidentiality</h3>
+        <p>We guarantee complete protection of our clients’ sensitive information.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="container">
+    <h2 class="section-title">Our Core Services</h2>
+    <div class="services">
+      <div class="service">
+        <h3>International Disputes & Arbitration</h3>
+        <p>Representation in cross-border litigation and arbitration tribunals.</p>
+      </div>
+      <div class="service">
+        <h3>Offshore Jurisdictions & Trusts</h3>
+        <p>Advising on company incorporation, trust management, and compliance.</p>
+      </div>
+      <div class="service">
+        <h3>Financial & Investment Conflicts</h3>
+        <p>Resolving disputes with banks, funds, and government authorities.</p>
+      </div>
+      <div class="service">
+        <h3>Corporate Investigations</h3>
+        <p>Detecting fraud schemes, minimizing risks, and restoring control.</p>
+      </div>
+      <div class="service">
+        <h3>Asset Protection</h3>
+        <p>Strategies for safeguarding and recovering assets across jurisdictions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="news" class="container">
+    <h2 class="section-title">News & Publications</h2>
+    <div class="news">
+      <div class="news-item">
+        <h3><a href="news1.html">Landmark Victory in International Arbitration</a></h3>
+        <p>Sterling Legal Advisory LLP successfully defended a European corporation, achieving the cancellation of a multimillion-euro penalty related to alleged breaches of currency regulations.</p>
+        <small>28 May 2024</small>
+      </div>
+      <div class="news-item">
+        <h3><a href="news2.html">EU Compliance: Emerging Challenges</a></h3>
+        <p>Our experts released an in-depth analysis of new EU anti-money laundering directives and offered practical recommendations for multinational corporations.</p>
+        <small>14 April 2025</small>
+      </div>
+      <div class="news-item">
+        <h3><a href="news3.html">Expanding Our Presence in the Middle East</a></h3>
+        <p>We launched a partner office in Dubai, strengthening our regional presence for clients engaged in international trade, energy, and investment projects.</p>
+        <small>7 July 2025</small>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" class="container">
+    <h2 class="section-title">Our Team</h2>
+    <div class="team">
+      <div class="member">
+        <img src="HelenMRowe.jpg" alt="Helen M. Rowe" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
+        <h3>Helen M. Rowe</h3>
+        <p>Senior Lawyer — International Disputes & Arbitration</p>
+      </div>
+      <div class="member">
+        <img src="AnnaIvanova.jpg" alt="Anna Ivanova" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
+        <h3>Anna Ivanova</h3>
+        <p>Associate Lawyer — Financial Disputes & Asset Protection</p>
+      </div>
+      <div class="member">
+        <img src="SophieWilliams.jpg" alt="Sophie Williams" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
+        <h3>Sophie Williams</h3>
+        <p>Partner — International Transactions & Investments</p>
+      </div>
+      <div class="member">
+        <img src="MariaPetrova.jpg" alt="Maria Petrova" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
+        <h3>Maria Petrova</h3>
+        <p>Counsel — Arbitration & Offshore Jurisdictions</p>
+      </div>
+      <div class="member">
+        <img src="DavidSmith.jpg" alt="David Smith" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
+        <h3>David Smith</h3>
+        <p>Partner — Corporate Investigations & Compliance</p>
+      </div>
+      <div class="member">
+        <img src="KenjiTanaka.jpg" alt="Kenji Tanaka" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
+        <h3>Kenji Tanaka</h3>
+        <p>Of Counsel — Trust Structures & Tax Planning</p>
+      </div>
+      <div class="member">
+        <img src="AlexeiMorozov.jpg" alt="Alexei Morozov" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
+        <h3>Alexei Morozov</h3>
+        <p>Associate — Litigation & Asset Recovery</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact container">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:investigations@sterlinglegal.uk">investigations@sterlinglegal.uk</a></p>
+    <p>Address: 30 Crown Place, London, EC2A 4EB, United Kingdom</p>
+    <p><a href="https://www.google.com/maps?q=30+Crown+Place,+London,+EC2A+4EB" target="_blank">View on Map</a></p>
+    <form action="https://formspree.io/f/yourFormID" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="_replyto" required>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p>
+      <a href="https://wa.me/447700900123" target="_blank">WhatsApp</a> |
+      <a href="https://t.me/SterlingLegal" target="_blank">Telegram</a>
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Sterling Legal Advisory LLP — All Rights Reserved</p>
+    <p>
+      <a href="privacy.html">Privacy Policy</a> | 
+      <a href="legal.html">Legal Notice</a>
+    </p>
+  </footer>
+
+</body>
+</html>
