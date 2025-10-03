@@ -15,7 +15,7 @@
   <meta property="og:title" content="Sterling Legal Advisory LLP | International Law Firm">
   <meta property="og:description" content="International legal services — disputes, arbitration, investigations, asset protection.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="Logo.jpg">
+  <meta property="og:image" content="Logo.png">
   <meta property="og:url" content="https://sterlinglegal.uk">
   <meta property="og:site_name" content="Sterling Legal Advisory LLP">
 
@@ -226,6 +226,7 @@
       height: 100%;
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
       opacity: 0;
       transition: opacity 1.5s ease-in-out;
       z-index: -2;
@@ -246,16 +247,17 @@
       z-index: -1;
     }
 
+    /* Fallback background if images don't load */
     .hero-bg-1 {
-      background-image: url('Fon.jpg');
+      background-image: url('Fon.jpg'), linear-gradient(135deg, #002147, #00152e);
     }
 
     .hero-bg-2 {
-      background-image: url('Fon1.jpg');
+      background-image: url('Fon1.jpg'), linear-gradient(135deg, #002147, #00152e);
     }
 
     .hero-bg-3 {
-      background-image: url('Fon2.jpg');
+      background-image: url('Fon2.jpg'), linear-gradient(135deg, #002147, #00152e);
     }
 
     .hero-content {
@@ -317,6 +319,19 @@
     .bg-control.active {
       background: var(--accent-color);
       border-color: white;
+    }
+
+    /* Debug info for missing images */
+    .debug-info {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      z-index: 1000;
     }
 
     /* Main Content Sections */
@@ -519,10 +534,13 @@
 
   <main id="main-content">
     <section class="hero" id="hero">
+      <!-- Debug info for testing -->
+      <div class="debug-info" id="debugInfo"></div>
+      
       <!-- Background Images -->
-      <div class="hero-bg hero-bg-1 active"></div>
-      <div class="hero-bg hero-bg-2"></div>
-      <div class="hero-bg hero-bg-3"></div>
+      <div class="hero-bg hero-bg-1 active" id="bg1"></div>
+      <div class="hero-bg hero-bg-2" id="bg2"></div>
+      <div class="hero-bg hero-bg-3" id="bg3"></div>
       
       <!-- Content -->
       <div class="hero-content">
@@ -539,6 +557,7 @@
       </div>
     </section>
 
+    <!-- Rest of the sections remain the same -->
     <section id="about" class="container">
       <h2 class="section-title">About Us</h2>
       <p>Sterling Legal Advisory LLP combines international experience with a tailored approach to each client. We work with governments, financial institutions, and private businesses in over 20 jurisdictions. Our goal is to deliver practical solutions, defend your interests, and ensure legal security in complex environments.</p>
@@ -688,6 +707,40 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Debug function to check if images are loading
+      function checkImageLoad() {
+        const images = [
+          { id: 'bg1', src: 'Fon.jpg' },
+          { id: 'bg2', src: 'Fon1.jpg' },
+          { id: 'bg3', src: 'Fon2.jpg' }
+        ];
+        
+        let debugText = 'Image Status: ';
+        
+        images.forEach((img, index) => {
+          const image = new Image();
+          image.onload = function() {
+            console.log(`✅ ${img.src} loaded successfully`);
+            document.querySelector(`#${img.id}`).style.backgroundImage = `url('${img.src}')`;
+          };
+          image.onerror = function() {
+            console.log(`❌ ${img.src} failed to load`);
+            debugText += `${img.src} failed | `;
+            // Fallback to gradient
+            document.querySelector(`#${img.id}`).style.backgroundImage = 'linear-gradient(135deg, #002147, #00152e)';
+          };
+          image.src = img.src;
+        });
+        
+        // Update debug info
+        setTimeout(() => {
+          document.getElementById('debugInfo').textContent = debugText;
+        }, 1000);
+      }
+
+      // Check images on load
+      checkImageLoad();
+
       // Background Slider Functionality
       const backgrounds = document.querySelectorAll('.hero-bg');
       const controls = document.querySelectorAll('.bg-control');
@@ -798,24 +851,6 @@
           }, 1500);
           
           e.preventDefault();
-        });
-      }
-
-      // Lazy loading for images
-      if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const img = entry.target;
-              img.src = img.dataset.src;
-              img.classList.remove('lazy');
-              imageObserver.unobserve(img);
-            }
-          });
-        });
-        
-        document.querySelectorAll('img[data-src]').forEach(img => {
-          imageObserver.observe(img);
         });
       }
     });
