@@ -413,25 +413,35 @@
       opacity: 1;
     }
 
-    /* Expertise Image Section */
-    .expertise-image {
-      text-align: center;
+    /* Why Choose Us Section */
+    .why-us {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 40px;
       margin: 40px 0;
     }
 
-    .expertise-image img {
-      max-width: 800px;
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-      margin: 0 auto;
+    .why-us-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
     }
 
-    .image-caption {
-      margin-top: 15px;
-      font-style: italic;
-      color: #666;
-      font-size: 14px;
+    .why-us-item {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .why-us-item h3 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .why-us-item p {
+      color: var(--text-color);
+      line-height: 1.6;
     }
 
     /* Contact Section */
@@ -561,7 +571,7 @@
     <nav>
       <a href="#hero">Home</a>
       <a href="#about">About</a>
-      <a href="#why-us">Why Us</a>
+      <a href="#why-us">Why Choose Us</a>
       <a href="#services">Services</a>
       <a href="#news">News</a>
       <a href="#team">Team</a>
@@ -599,28 +609,24 @@
     <section id="why-us" class="container">
       <h2 class="section-title">Why Choose Us</h2>
       <div class="why-us">
-        <div class="service">
-          <h3>International Expertise</h3>
-          <p>We handle cross-border disputes and arbitration cases worldwide.</p>
+        <div class="why-us-grid">
+          <div class="why-us-item">
+            <h3>International Expertise</h3>
+            <p>We handle cross-border disputes and arbitration cases worldwide with deep understanding of multiple jurisdictions.</p>
+          </div>
+          <div class="why-us-item">
+            <h3>Trusted Reputation</h3>
+            <p>As part of the international Sterling Legal network, we bring global credibility and local expertise to every case.</p>
+          </div>
+          <div class="why-us-item">
+            <h3>Comprehensive Solutions</h3>
+            <p>We combine legal expertise with strategic business approach to deliver complete solutions for complex challenges.</p>
+          </div>
+          <div class="why-us-item">
+            <h3>Confidentiality Guaranteed</h3>
+            <p>Your sensitive information is protected with the highest standards of confidentiality and data security.</p>
+          </div>
         </div>
-        <div class="service">
-          <h3>Trusted Reputation</h3>
-          <p>We are part of the international Sterling Legal network.</p>
-        </div>
-        <div class="service">
-          <h3>Comprehensive Solutions</h3>
-          <p>We combine legal expertise with a strategic business approach.</p>
-        </div>
-        <div class="service">
-          <h3>Confidentiality</h3>
-          <p>We guarantee complete protection of our clients' sensitive information.</p>
-        </div>
-      </div>
-
-      <!-- Добавлено фото под секцией International Expertise -->
-      <div class="expertise-image">
-        <img src="internationalexpertise.jpg" alt="International Expertise - Sterling Legal Advisory LLP" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x400';">
-        <div class="image-caption">Global Legal Excellence - Serving Clients Across Multiple Jurisdictions</div>
       </div>
     </section>
 
@@ -629,23 +635,23 @@
       <div class="services">
         <div class="service">
           <h3>International Disputes & Arbitration</h3>
-          <p>Representation in cross-border litigation and arbitration tribunals.</p>
+          <p>Representation in cross-border litigation and arbitration tribunals with expertise in multiple legal systems.</p>
         </div>
         <div class="service">
           <h3>Offshore Jurisdictions & Trusts</h3>
-          <p>Advising on company incorporation, trust management, and compliance.</p>
+          <p>Advising on company incorporation, trust management, and compliance across global financial centers.</p>
         </div>
         <div class="service">
           <h3>Financial & Investment Conflicts</h3>
-          <p>Resolving disputes with banks, funds, and government authorities.</p>
+          <p>Resolving disputes with banks, funds, and government authorities through strategic negotiation and litigation.</p>
         </div>
         <div class="service">
           <h3>Corporate Investigations</h3>
-          <p>Detecting fraud schemes, minimizing risks, and restoring control.</p>
+          <p>Detecting fraud schemes, minimizing risks, and restoring control through comprehensive investigative approaches.</p>
         </div>
         <div class="service">
           <h3>Asset Protection</h3>
-          <p>Strategies for safeguarding and recovering assets across jurisdictions.</p>
+          <p>Strategies for safeguarding and recovering assets across jurisdictions with proven track record of success.</p>
         </div>
       </div>
     </section>
