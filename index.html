@@ -1175,7 +1175,15 @@
             setTimeout(() => {
                 window.scrollTo(0, 0);
             }, 500);
-        });
-    </script>
+        });    </div> <!-- какой-то контейнер -->
+  </div> <!-- закрытие team-profile -->
+     </div> <!-- какой-то контейнер -->
+  </div> <!-- закрытие team-profile -->
+            
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  </script>
 </body>
 </html>
