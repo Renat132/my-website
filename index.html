@@ -413,130 +413,6 @@
       opacity: 1;
     }
 
-    /* Team Member Modal */
-    .team-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      z-index: 2000;
-      overflow-y: auto;
-    }
-
-    .team-modal.active {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 40px 20px;
-    }
-
-    .modal-content {
-      background: white;
-      max-width: 800px;
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      position: relative;
-      animation: modalSlideIn 0.3s ease-out;
-    }
-
-    @keyframes modalSlideIn {
-      from {
-        opacity: 0;
-        transform: translateY(-50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      background: none;
-      border: none;
-      font-size: 24px;
-      color: var(--text-color);
-      cursor: pointer;
-      z-index: 1;
-      transition: var(--transition);
-    }
-
-    .modal-close:hover {
-      color: var(--accent-color);
-      transform: scale(1.1);
-    }
-
-    .modal-header {
-      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-      color: white;
-      padding: 40px 40px 30px;
-      border-radius: 10px 10px 0 0;
-      position: relative;
-    }
-
-    .modal-profile {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      margin-bottom: 20px;
-    }
-
-    .modal-profile img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 4px solid white;
-      object-fit: cover;
-    }
-
-    .modal-profile-info h3 {
-      margin: 0 0 5px 0;
-      font-size: 1.8rem;
-    }
-
-    .modal-profile-info .position {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      margin-bottom: 10px;
-    }
-
-    .modal-profile-info .description {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    .modal-body {
-      padding: 30px 40px;
-    }
-
-    .modal-section {
-      margin-bottom: 30px;
-    }
-
-    .modal-section h4 {
-      color: var(--primary-color);
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-      border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 5px;
-    }
-
-    .modal-section ul {
-      padding-left: 20px;
-      margin: 0;
-    }
-
-    .modal-section li {
-      margin-bottom: 8px;
-      line-height: 1.5;
-    }
-
     /* Contact Section */
     .contact {
       padding: 60px 20px;
@@ -647,26 +523,6 @@
 
     .mb-20 {
       margin-bottom: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .modal-profile {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .modal-header {
-        padding: 30px 20px 20px;
-      }
-      
-      .modal-body {
-        padding: 20px;
-      }
-      
-      .modal-profile img {
-        width: 100px;
-        height: 100px;
-      }
     }
   </style>
 </head>
@@ -792,37 +648,37 @@
     <section id="team" class="container">
       <h2 class="section-title">Our Team</h2>
       <div class="team">
-        <div class="member" data-member="helen-rowe">
+        <div class="member" onclick="window.location.href='helen-rowe.html'">
           <img src="HelenMRowe.jpg" alt="Helen M. Rowe" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
           <h3>Helen M. Rowe</h3>
           <p>Senior Lawyer — International Disputes & Arbitration</p>
         </div>
-        <div class="member" data-member="anna-ivanova">
+        <div class="member" onclick="window.location.href='anna-ivanova.html'">
           <img src="AnnaIvanova.jpg" alt="Anna Ivanova" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
           <h3>Anna Ivanova</h3>
           <p>Associate Lawyer — Financial Disputes & Asset Protection</p>
         </div>
-        <div class="member" data-member="sophie-williams">
+        <div class="member" onclick="window.location.href='sophie-williams.html'">
           <img src="SophieWilliams.jpg" alt="Sophie Williams" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
           <h3>Sophie Williams</h3>
           <p>Partner — International Transactions & Investments</p>
         </div>
-        <div class="member" data-member="maria-petrova">
+        <div class="member" onclick="window.location.href='maria-petrova.html'">
           <img src="MariaPetrova.jpg" alt="Maria Petrova" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
           <h3>Maria Petrova</h3>
           <p>Counsel — Arbitration & Offshore Jurisdictions</p>
         </div>
-        <div class="member" data-member="david-smith">
+        <div class="member" onclick="window.location.href='david-smith.html'">
           <img src="DavidSmith.jpg" alt="David Smith" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
           <h3>David Smith</h3>
           <p>Partner — Corporate Investigations & Compliance</p>
         </div>
-        <div class="member" data-member="kenji-tanaka">
+        <div class="member" onclick="window.location.href='kenji-tanaka.html'">
           <img src="KenjiTanaka.jpg" alt="Kenji Tanaka" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
           <h3>Kenji Tanaka</h3>
           <p>Of Counsel — Trust Structures & Tax Planning</p>
         </div>
-        <div class="member" data-member="alexei-morozov">
+        <div class="member" onclick="window.location.href='alexei-morozov.html'">
           <img src="AlexeiMorozov.jpg" alt="Alexei Morozov" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
           <h3>Alexei Morozov</h3>
           <p>Associate — Litigation & Asset Recovery</p>
@@ -854,60 +710,6 @@
     </section>
   </main>
 
-  <!-- Team Member Modal -->
-  <div class="team-modal" id="teamModal">
-    <div class="modal-content">
-      <button class="modal-close" id="modalClose">&times;</button>
-      <div class="modal-header">
-        <div class="modal-profile">
-          <img id="modalImage" src="" alt="">
-          <div class="modal-profile-info">
-            <h3 id="modalName">Helen M. Rowe</h3>
-            <div class="position" id="modalPosition">Partner, International Law, Sterling Legal Advisory LLP</div>
-            <div class="description" id="modalDescription">Helen M. Rowe is a British lawyer with more than 20 years of experience in international and corporate law.</div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-body">
-        <div class="modal-section">
-          <h4>Professional Background</h4>
-          <p id="modalBackground">Throughout her career, Helen has advised clients in complex litigation and arbitration cases in the United Kingdom, the European Union, and offshore jurisdictions including the British Virgin Islands and the Cayman Islands.</p>
-        </div>
-        
-        <div class="modal-section">
-          <h4>Core Expertise</h4>
-          <ul id="modalExpertise">
-            <li>Corporate and financial law</li>
-            <li>Resolution of cross-border commercial disputes</li>
-            <li>Advising on company liquidation and restructuring</li>
-            <li>Investigation of fraud, misuse of corporate structures, and money laundering</li>
-            <li>Cooperation with governmental and international regulators</li>
-          </ul>
-        </div>
-        
-        <div class="modal-section">
-          <h4>Expertise and Achievements</h4>
-          <ul id="modalAchievements">
-            <li>Advising clients on compliance with corporate and financial regulations in international transactions</li>
-            <li>Uncovering and documenting instances of corporate document falsification</li>
-            <li>Protecting the rights of creditors, employees, and investors in cross-border disputes</li>
-            <li>Representing clients before the High Court of Justice in London and international arbitration institutions</li>
-          </ul>
-        </div>
-        
-        <div class="modal-section">
-          <h4>International Cooperation</h4>
-          <p id="modalCooperation">Helen coordinates Sterling Legal Advisory LLP's collaboration with international law firms in the UK, Europe, and the Caribbean. She has led joint projects with Collas Crill L.P. (BVI) and other partners, ensuring effective legal protection in complex cross-border matters.</p>
-        </div>
-        
-        <div class="modal-section">
-          <h4>Education and Professional Memberships</h4>
-          <p id="modalEducation">Helen received her legal education in the United Kingdom and is a member of the Law Society of England and Wales. She regularly contributes to professional publications and speaks at international conferences and seminars on corporate law, cross-border disputes, and financial crime prevention.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <footer>
     <p>&copy; 2025 Sterling Legal Advisory LLP — All Rights Reserved</p>
     <p>
@@ -917,101 +719,120 @@
   </footer>
 
   <script>
-    // Team member data
-    const teamMembers = {
-      'helen-rowe': {
-        name: 'Helen M. Rowe',
-        position: 'Partner, International Law, Sterling Legal Advisory LLP',
-        description: 'Helen M. Rowe is a British lawyer with more than 20 years of experience in international and corporate law. She specializes in cross-border disputes, company liquidation, corporate misconduct investigations, and financial crime prevention.',
-        background: 'Throughout her career, Helen has advised clients in complex litigation and arbitration cases in the United Kingdom, the European Union, and offshore jurisdictions including the British Virgin Islands and the Cayman Islands.',
-        expertise: [
-          'Corporate and financial law',
-          'Resolution of cross-border commercial disputes',
-          'Advising on company liquidation and restructuring',
-          'Investigation of fraud, misuse of corporate structures, and money laundering',
-          'Cooperation with governmental and international regulators, including the BVI Financial Services Commission, law enforcement bodies, and international organizations'
-        ],
-        achievements: [
-          'Advising clients on compliance with corporate and financial regulations in international transactions',
-          'Uncovering and documenting instances of corporate document falsification',
-          'Protecting the rights of creditors, employees, and investors in cross-border disputes',
-          'Representing clients before the High Court of Justice in London and international arbitration institutions'
-        ],
-        cooperation: 'Helen coordinates Sterling Legal Advisory LLP\'s collaboration with international law firms in the UK, Europe, and the Caribbean. She has led joint projects with Collas Crill L.P. (BVI) and other partners, ensuring effective legal protection in complex cross-border matters.',
-        education: 'Helen received her legal education in the United Kingdom and is a member of the Law Society of England and Wales. She regularly contributes to professional publications and speaks at international conferences and seminars on corporate law, cross-border disputes, and financial crime prevention.',
-        image: 'HelenMRowe.jpg'
-      },
-      'anna-ivanova': {
-        name: 'Anna Ivanova',
-        position: 'Associate Lawyer — Financial Disputes & Asset Protection',
-        description: 'Anna specializes in financial disputes and asset protection strategies.',
-        background: 'Background information about Anna Ivanova...',
-        expertise: ['Financial law expertise', 'Asset protection strategies', 'Cross-border financial disputes'],
-        achievements: ['Achievement 1', 'Achievement 2', 'Achievement 3'],
-        cooperation: 'International cooperation details...',
-        education: 'Education background...',
-        image: 'AnnaIvanova.jpg'
-      }
-      // Add other team members here...
-    };
-
     document.addEventListener('DOMContentLoaded', function() {
-      const modal = document.getElementById('teamModal');
-      const modalClose = document.getElementById('modalClose');
-      const members = document.querySelectorAll('.member');
+      // Background Slider Functionality
+      const backgrounds = document.querySelectorAll('.hero-bg');
+      const controls = document.querySelectorAll('.bg-control');
+      let currentBg = 0;
+      const bgCount = backgrounds.length;
+      let slideInterval;
 
-      // Open modal when clicking on team member
-      members.forEach(member => {
-        member.addEventListener('click', function() {
-          const memberId = this.getAttribute('data-member');
-          const memberData = teamMembers[memberId];
-          
-          if (memberData) {
-            document.getElementById('modalImage').src = memberData.image;
-            document.getElementById('modalName').textContent = memberData.name;
-            document.getElementById('modalPosition').textContent = memberData.position;
-            document.getElementById('modalDescription').textContent = memberData.description;
-            document.getElementById('modalBackground').textContent = memberData.background;
-            document.getElementById('modalCooperation').textContent = memberData.cooperation;
-            document.getElementById('modalEducation').textContent = memberData.education;
-            
-            // Populate expertise list
-            const expertiseList = document.getElementById('modalExpertise');
-            expertiseList.innerHTML = '';
-            memberData.expertise.forEach(item => {
-              const li = document.createElement('li');
-              li.textContent = item;
-              expertiseList.appendChild(li);
-            });
-            
-            // Populate achievements list
-            const achievementsList = document.getElementById('modalAchievements');
-            achievementsList.innerHTML = '';
-            memberData.achievements.forEach(item => {
-              const li = document.createElement('li');
-              li.textContent = item;
-              achievementsList.appendChild(li);
-            });
-            
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-          }
+      function showBackground(index) {
+        // Hide all backgrounds
+        backgrounds.forEach(bg => bg.classList.remove('active'));
+        controls.forEach(control => control.classList.remove('active'));
+        
+        // Show selected background
+        backgrounds[index].classList.add('active');
+        controls[index].classList.add('active');
+        
+        currentBg = index;
+      }
+
+      function nextBackground() {
+        const nextIndex = (currentBg + 1) % bgCount;
+        showBackground(nextIndex);
+      }
+
+      // Auto-rotate backgrounds every 5 seconds
+      function startSlider() {
+        slideInterval = setInterval(nextBackground, 5000);
+      }
+
+      function stopSlider() {
+        clearInterval(slideInterval);
+      }
+
+      // Add click events to controls
+      controls.forEach((control, index) => {
+        control.addEventListener('click', () => {
+          stopSlider();
+          showBackground(index);
+          startSlider();
         });
       });
 
-      // Close modal
-      modalClose.addEventListener('click', function() {
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-      });
+      // Pause slider on hover
+      const heroSection = document.querySelector('.hero');
+      heroSection.addEventListener('mouseenter', stopSlider);
+      heroSection.addEventListener('mouseleave', startSlider);
 
-      // Close modal when clicking outside
-      modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-          modal.classList.remove('active');
-          document.body.style.overflow = 'auto';
-        }
-      });
+      // Start the slider
+      startSlider();
 
-      // Close modal with Escape key
-      document.addEventListener
+      // Mobile menu toggle
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+      
+      menuToggle.addEventListener('click', function() {
+        nav.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !isExpanded);
+      });
+      
+      // Close mobile menu when clicking on a link
+      const navLinks = document.querySelectorAll('nav a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('active');
+          menuToggle.classList.remove('active');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            const headerHeight = document.querySelector('header').offsetHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // Form submission handling
+      const contactForm = document.querySelector('#contact form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          const submitButton = this.querySelector('button[type="submit"]');
+          const originalText = submitButton.textContent;
+          
+          submitButton.textContent = 'Sending...';
+          submitButton.classList.add('loading');
+          
+          setTimeout(() => {
+            submitButton.textContent = originalText;
+            submitButton.classList.remove('loading');
+            alert('Thank you for your message. We will get back to you soon.');
+            contactForm.reset();
+          }, 1500);
+          
+          e.preventDefault();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
