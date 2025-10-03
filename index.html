@@ -796,6 +796,25 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
+
+        /* Back link styles for team member pages */
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
     </style>
 </head>
 <body>
@@ -1026,156 +1045,4 @@
         // Initialize page at top
         window.addEventListener('load', function() {
             window.scrollTo(0, 0);
-            document.documentElement.scrollTop = 0;
-            document.body.scrollTop = 0;
-        });
-
-        // Disable scroll restoration
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
-        }
-
-        // Scroll to top function
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // Scroll to section function
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            const headerHeight = document.querySelector('header').offsetHeight;
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-
-        // Show/hide scroll to top button
-        window.addEventListener('scroll', function() {
-            const scrollToTopBtn = document.querySelector('.scroll-to-top');
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                scrollToTopBtn.classList.remove('visible');
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Background Slider
-            const backgrounds = document.querySelectorAll('.hero-bg');
-            const controls = document.querySelectorAll('.bg-control');
-            let currentBg = 0;
-            const bgCount = backgrounds.length;
-            let slideInterval;
-
-            function showBackground(index) {
-                backgrounds.forEach(bg => bg.classList.remove('active'));
-                controls.forEach(control => control.classList.remove('active'));
-                
-                backgrounds[index].classList.add('active');
-                controls[index].classList.add('active');
-                
-                currentBg = index;
-            }
-
-            function nextBackground() {
-                const nextIndex = (currentBg + 1) % bgCount;
-                showBackground(nextIndex);
-            }
-
-            function startSlider() {
-                slideInterval = setInterval(nextBackground, 5000);
-            }
-
-            function stopSlider() {
-                clearInterval(slideInterval);
-            }
-
-            controls.forEach((control, index) => {
-                control.addEventListener('click', () => {
-                    stopSlider();
-                    showBackground(index);
-                    startSlider();
-                });
-            });
-
-            const heroSection = document.querySelector('.hero');
-            heroSection.addEventListener('mouseenter', stopSlider);
-            heroSection.addEventListener('mouseleave', startSlider);
-
-            startSlider();
-
-            // Mobile menu
-            const menuToggle = document.querySelector('.menu-toggle');
-            const nav = document.querySelector('nav');
-            
-            menuToggle.addEventListener('click', function() {
-                nav.classList.toggle('active');
-                menuToggle.classList.toggle('active');
-                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-                menuToggle.setAttribute('aria-expanded', !isExpanded);
-            });
-            
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    nav.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                });
-            });
-
-            // Smooth scrolling for navigation
-            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    scrollToSection(targetId.substring(1));
-                });
-            });
-
-            // Form handling
-            const contactForm = document.querySelector('.contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const submitButton = this.querySelector('.submit-btn');
-                    const originalText = submitButton.textContent;
-                    
-                    submitButton.textContent = 'Sending...';
-                    submitButton.classList.add('loading');
-                    
-                    setTimeout(() => {
-                        submitButton.textContent = 'Message Sent!';
-                        setTimeout(() => {
-                            submitButton.textContent = originalText;
-                            submitButton.classList.remove('loading');
-                            contactForm.reset();
-                        }, 2000);
-                    }, 1500);
-                });
-            }
-
-            // Ensure page starts at top
-            setTimeout(() => {
-                window.scrollTo(0, 0);
-            }, 100);
-        });
-
-        // Final guarantee - scroll to top after everything loads
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                window.scrollTo(0, 0);
-            }, 500);
-        });
-    </script>
-</body>
-</html>
+            document.d
