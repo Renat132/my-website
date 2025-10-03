@@ -39,6 +39,7 @@
       --text-light: #fafafa;
       --border-color: #ddd;
       --shadow: 0 4px 12px rgba(0,0,0,0.1);
+      --shadow-hover: 0 8px 25px rgba(0,0,0,0.15);
       --transition: all 0.3s ease;
       --border-radius: 5px;
       --container-width: 1200px;
@@ -423,14 +424,26 @@
 
     .why-us-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
       margin-top: 30px;
     }
 
     .why-us-item {
       text-align: center;
-      padding: 20px;
+      padding: 25px;
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .why-us-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
     }
 
     .why-us-item h3 {
@@ -442,27 +455,48 @@
     .why-us-item p {
       color: var(--text-color);
       line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
     }
 
-    /* Expertise Image Section */
-    .expertise-image {
+    /* Why Choose Us Images */
+    .why-us-image {
+      margin-top: auto;
       text-align: center;
-      margin: 40px 0 0 0;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
     }
 
-    .expertise-image img {
-      max-width: 800px;
+    .why-us-image img {
       width: 100%;
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-      margin: 0 auto;
+      height: 200px;
+      object-fit: cover;
+      transition: var(--transition);
+      border: 2px solid transparent;
     }
 
-    .image-caption {
-      margin-top: 15px;
-      font-style: italic;
-      color: #666;
-      font-size: 14px;
+    .why-us-item:hover .why-us-image img {
+      transform: scale(1.1);
+      border-color: var(--accent-color);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .why-us-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(0, 33, 71, 0.1), rgba(192, 57, 43, 0.1));
+      opacity: 0;
+      transition: var(--transition);
+      z-index: 1;
+    }
+
+    .why-us-item:hover .why-us-image::before {
+      opacity: 1;
     }
 
     /* Contact Section */
@@ -634,25 +668,38 @@
           <div class="why-us-item">
             <h3>International Expertise</h3>
             <p>We handle cross-border disputes and arbitration cases worldwide with deep understanding of multiple jurisdictions.</p>
+            <!-- Картинка для International Expertise -->
+            <div class="why-us-image">
+              <img src="international-expertise.jpg" alt="International Legal Expertise" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x200/002147/ffffff?text=International+Expertise';">
+            </div>
           </div>
+          
           <div class="why-us-item">
             <h3>Trusted Reputation</h3>
             <p>As part of the international Sterling Legal network, we bring global credibility and local expertise to every case.</p>
+            <!-- Картинка для Trusted Reputation -->
+            <div class="why-us-image">
+              <img src="trusted-reputation.jpg" alt="Trusted Legal Reputation" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x200/002147/ffffff?text=Trusted+Reputation';">
+            </div>
           </div>
+          
           <div class="why-us-item">
             <h3>Comprehensive Solutions</h3>
             <p>We combine legal expertise with strategic business approach to deliver complete solutions for complex challenges.</p>
+            <!-- Картинка для Comprehensive Solutions -->
+            <div class="why-us-image">
+              <img src="comprehensive-solutions.jpg" alt="Comprehensive Legal Solutions" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x200/002147/ffffff?text=Comprehensive+Solutions';">
+            </div>
           </div>
+          
           <div class="why-us-item">
             <h3>Confidentiality Guaranteed</h3>
             <p>Your sensitive information is protected with the highest standards of confidentiality and data security.</p>
+            <!-- Картинка для Confidentiality -->
+            <div class="why-us-image">
+              <img src="confidentiality.jpg" alt="Confidentiality Guaranteed" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x200/002147/ffffff?text=Confidentiality';">
+            </div>
           </div>
-        </div>
-        
-        <!-- Добавлено фото под текстами Why Choose Us -->
-        <div class="expertise-image">
-          <img src="why-choose-us-image.jpg" alt="Why Choose Sterling Legal - International Legal Expertise" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x400/002147/ffffff?text=Sterling+Legal+Advisory+LLP';">
-          <div class="image-caption">Global Legal Excellence - Trusted by Clients Worldwide</div>
         </div>
       </div>
     </section>
