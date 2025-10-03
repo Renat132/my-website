@@ -415,36 +415,31 @@
     }
 
     /* Why Choose Us Section */
-.why-us {
-  /* Убрали background, padding и margin */
-  padding: 0;
-  margin: 0;
-}
+    .why-us {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 40px;
+      margin: 0;
+    }
 
-.why-us-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 30px;
-}
+    .why-us-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
 
-.why-us-item {
-  text-align: center;
-  padding: 30px 20px;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-  background: white;
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.why-us-item:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-hover);
-  border-color: var(--accent-color);
-}
+    .why-us-item {
+      text-align: center;
+      padding: 25px;
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
 
     .why-us-item:hover {
       transform: translateY(-5px);
@@ -616,6 +611,16 @@
       margin-bottom: 20px;
     }
   </style>
+
+  <script>
+    // Скролл наверх при загрузке
+    if (history.scrollRestoration) {
+      history.scrollRestoration = 'manual';
+    }
+    window.onload = function() {
+      window.scrollTo(0, 0);
+    };
+  </script>
 </head>
 <body>
   <!-- Skip Link for Accessibility -->
@@ -831,6 +836,9 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Принудительно скроллим наверх при загрузке страницы
+      window.scrollTo(0, 0);
+      
       // Background Slider Functionality
       const backgrounds = document.querySelectorAll('.hero-bg');
       const controls = document.querySelectorAll('.bg-control');
@@ -839,11 +847,9 @@
       let slideInterval;
 
       function showBackground(index) {
-        // Hide all backgrounds
         backgrounds.forEach(bg => bg.classList.remove('active'));
         controls.forEach(control => control.classList.remove('active'));
         
-        // Show selected background
         backgrounds[index].classList.add('active');
         controls[index].classList.add('active');
         
@@ -855,7 +861,6 @@
         showBackground(nextIndex);
       }
 
-      // Auto-rotate backgrounds every 5 seconds
       function startSlider() {
         slideInterval = setInterval(nextBackground, 5000);
       }
@@ -864,7 +869,6 @@
         clearInterval(slideInterval);
       }
 
-      // Add click events to controls
       controls.forEach((control, index) => {
         control.addEventListener('click', () => {
           stopSlider();
@@ -873,12 +877,10 @@
         });
       });
 
-      // Pause slider on hover
       const heroSection = document.querySelector('.hero');
       heroSection.addEventListener('mouseenter', stopSlider);
       heroSection.addEventListener('mouseleave', startSlider);
 
-      // Start the slider
       startSlider();
 
       // Mobile menu toggle
@@ -892,7 +894,6 @@
         menuToggle.setAttribute('aria-expanded', !isExpanded);
       });
       
-      // Close mobile menu when clicking on a link
       const navLinks = document.querySelectorAll('nav a');
       navLinks.forEach(link => {
         link.addEventListener('click', () => {
@@ -902,7 +903,6 @@
         });
       });
       
-      // Smooth scrolling for anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           e.preventDefault();
@@ -923,7 +923,6 @@
         });
       });
       
-      // Form submission handling
       const contactForm = document.querySelector('#contact form');
       if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
