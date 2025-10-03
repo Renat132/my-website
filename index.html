@@ -416,10 +416,9 @@
 
     /* Why Choose Us Section */
 .why-us {
-  background: #f8f9fa;
-  border-radius: 10px;
-  padding: 40px;
-  margin: 0; /* Убрали отступы */
+  /* Убрали background, padding и margin */
+  padding: 0;
+  margin: 0;
 }
 
 .why-us-grid {
@@ -431,15 +430,21 @@
 
 .why-us-item {
   text-align: center;
-  padding: 25px;
-  background: white;
+  padding: 30px 20px;
+  border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
+  background: white;
   transition: var(--transition);
   display: flex;
   flex-direction: column;
   height: 100%;
-    }
+}
+
+.why-us-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent-color);
+}
 
     .why-us-item:hover {
       transform: translateY(-5px);
