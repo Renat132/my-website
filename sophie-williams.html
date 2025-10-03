@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sophie Williams - Sterling Legal Advisory LLP</title>
+  <style>
+    /* CSS стили из главной страницы */
+    :root {
+      --primary-color: #002147;
+      --primary-dark: #00152e;
+      --accent-color: #c0392b;
+      --accent-dark: #a93226;
+      --text-color: #333;
+      --text-light: #fafafa;
+      --border-color: #ddd;
+      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
+      --border-radius: 5px;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      line-height: 1.6;
+      background: var(--text-light);
+    }
+
+    .team-profile {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 80px 20px 40px;
+    }
+
+    .back-button {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      margin-bottom: 30px;
+      font-size: 16px;
+      transition: var(--transition);
+    }
+
+    .back-button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .profile-header {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: white;
+      padding: 40px;
+      border-radius: 10px;
+      margin-bottom: 40px;
+    }
+
+    .profile-header h1 {
+      margin: 0 0 10px 0;
+      font-size: 2.5rem;
+    }
+
+    .profile-header p {
+      margin: 0;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .profile-content {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .profile-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile-info h2 {
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 5px;
+      margin-top: 0;
+    }
+
+    .profile-section {
+      margin-bottom: 30px;
+    }
+
+    .profile-section ul {
+      padding-left: 20px;
+    }
+
+    .profile-section li {
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .languages {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .language-tag {
+      background: var(--primary-color);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .expertise-item {
+      background: white;
+      padding: 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .expertise-item h4 {
+      margin: 0 0 10px 0;
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+      .profile-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .profile-header h1 {
+        font-size: 2rem;
+      }
+      
+      .profile-image {
+        text-align: center;
+      }
+      
+      .profile-image img {
+        max-width: 250px;
+      }
+      
+      .expertise-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="team-profile">
+    <button class="back-button" onclick="window.location.href='index.html#team'">← Back to Team</button>
+    
+    <div class="profile-header">
+      <h1>Sophie Williams</h1>
+      <p>Partner — International Transactions & Investments<br>Sterling Legal Advisory LLP</p>
+    </div>
+    
+    <div class="profile-content">
+      <div class="profile-image">
+        <img src="SophieWilliams.jpg" alt="Sophie Williams" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400';">
+      </div>
+      
+      <div class="profile-info">
+        <div class="profile-section">
+          <h2>Professional Overview</h2>
+          <p>Sophie Williams is a Partner at Sterling Legal Advisory LLP, specializing in international transactions and investment law. She advises corporate clients, financial institutions, and private investors on cross-border deals, investment structuring, and regulatory compliance, ensuring that clients achieve their strategic objectives in complex international markets.</p>
+        </div>
+        
+        <div class="profile-section">
+          <h2>Education and Professional Experience</h2>
+          <p>Sophie holds a law degree from a leading UK university and has completed advanced training in international commercial law and investment regulations. She has extensive experience working with multinational clients on high-value transactions, joint ventures, mergers and acquisitions, and investment projects across various jurisdictions.</p>
+        </div>
+        
+        <div class="profile-section">
+          <h2>Key Areas of Practice</h2>
+          <div class="expertise-grid">
+            <div class="expertise-item">
+              <h4>Cross-Border Transactions</h4>
+              <p>Structuring and negotiating international corporate transactions and investment deals</p>
+            </div>
+            <div class="expertise-item">
+              <h4>Joint Ventures & Partnerships</h4>
+              <p>Establishing and managing international joint ventures and strategic partnerships</p>
+            </div>
+            <div class="expertise-item">
+              <h4>Regulatory Compliance</h4>
+              <p>Ensuring compliance with international regulations and risk management</p>
+            </div>
+            <div class="expertise-item">
+              <h4>M&A & Investments</h4>
+              <p>Advising on mergers, acquisitions, and capital investment strategies</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="profile-section">
+          <h2>Languages</h2>
+          <div class="languages">
+            <span class="language-tag">English (native)</span>
+            <span class="language-tag">French (fluent)</span>
+          </div>
+        </div>
+        
+        <div class="profile-section">
+          <h2>Professional Approach</h2>
+          <p>Sophie combines deep expertise in international investment law with practical business acumen, enabling her to provide strategic advice that aligns legal requirements with commercial objectives. Her ability to navigate complex regulatory environments and cultural differences makes her an invaluable advisor for clients expanding their global footprint.</p>
+        </div>
+        
+        <div class="profile-section">
+          <h2>Contact</h2>
+          <p>Email: <a href="mailto:s.williams@sterlinglegal.uk">s.williams@sterlinglegal.uk</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
