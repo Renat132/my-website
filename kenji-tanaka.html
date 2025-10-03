@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kenji Tanaka - Sterling Legal Advisory LLP</title>
+  <style>
+    /* CSS стили из главной страницы */
+    :root {
+      --primary-color: #002147;
+      --primary-dark: #00152e;
+      --accent-color: #c0392b;
+      --accent-dark: #a93226;
+      --text-color: #333;
+      --text-light: #fafafa;
+      --border-color: #ddd;
+      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
+      --border-radius: 5px;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      line-height: 1.6;
+      background: var(--text-light);
+    }
+
+    .team-profile {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 80px 20px 40px;
+    }
+
+    .back-button {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      margin-bottom: 30px;
+      font-size: 16px;
+      transition: var(--transition);
+    }
+
+    .back-button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .profile-header {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: white;
+      padding: 40px;
+      border-radius: 10px;
+      margin-bottom: 40px;
+    }
+
+    .profile-header h1 {
+      margin: 0 0 10px 0;
+      font-size: 2.5rem;
+    }
+
+    .profile-header p {
+      margin: 0;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .profile-content {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .profile-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile-info h2 {
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 5px;
+      margin-top: 0;
+    }
+
+    .profile-section {
+      margin-bottom: 30px;
+    }
+
+    .profile-section ul {
+      padding-left: 20px;
+    }
+
+    .profile-section li {
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .languages {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .language-tag {
+      background: var(--primary-color);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .expertise-item {
+      background: white;
+      padding: 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--accent-color);
+      transition: var(--transition);
+    }
+
+    .expertise-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .expertise-item h4 {
+      margin: 0 0 10px 0;
+      color: var(--primary-color);
+    }
+
+    .trust-types {
+      background: var(--primary-color);
+      color: white;
+      padding: 30px;
+      border-radius: var(--border-radius);
+      margin-top: 20px;
+    }
+
+    .trust-types h4 {
+      margin: 0 0 15px 0;
+      color: white;
+    }
+
+    .trust-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    .trust-tag {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 8px 12px;
+      border-radius: 15px;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .planning-process {
+      background: #f8f9fa;
+      padding: 25px;
+      border-radius: var(--border-radius);
+      border-left: 4px solid var(--accent-color);
+      margin-top: 20px;
+    }
+
+    .planning-process h4 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 15px;
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
+
+    .process-step .step-number {
+      background: var(--accent-color);
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+      font-weight: bold;
+    }
+
+    .jurisdictions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .jurisdiction-tag {
+      background: var(--primary-color);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .profile-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .profile-header h1 {
+        font-size: 2rem;
+      }
+      
+      .profile-image {
+        text-align: center;
+      }
+      
+      .profile-image img {
+        max-width: 250px;
+      }
+      
+      .expertise-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .trust-list {
+        grid-template-columns: 1fr;
+      }
+      
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+      
+      .jurisdictions {
+        justify-content: center;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="team-profile">
+    <button class="back-button" onclick="window.location.href='index.html#team'">← Back to Team</button>
+    
+    <div class="profile-header">
+      <h1>Kenji Tanaka</h1>
+      <p>Of Counsel — Trust Structures & Tax Planning<br>Sterling Legal Advisory LLP</p>
+    </div>
+    
+    <div class="profile-content">
+      <div class="profile-image">
+        <img src="KenjiTanaka.jpg" alt="Kenji Tanaka" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400';">
+      </div>
+      
+      <div class="profile-info">
+        <div class="profile-section">
+          <h2>Professional Overview</h2>
+          <p>Kenji Tanaka is Of Counsel at Sterling Legal Advisory LLP, specializing in trust structures and tax planning. He advises high-net-worth individuals, family offices, and corporate clients on the establishment and management of trusts, estate planning, and tax-efficient structures, ensuring compliance with international regulations.</p>
+        </div>
+        
+        <div class="profile-section">
+          <h2>Education and Professional Experience</h2>
+          <p>Kenji holds a law degree from a leading Japanese university and has completed advanced studies in international taxation and trust law. He has extensive experience in structuring complex trust arrangements, advising on cross-border tax planning, and providing strategic guidance to clients seeking to protect and manage their assets efficiently.</p>
+        </div>
+        
+        <div class="profile-section">
+          <h2>Key Areas of Practice</h2>
+          <div class="expertise-grid">
+            <div class="expertise-item">
+              <h4>Trust Formation & Management</h4>
+              <p>Establishment, administration, and management of complex trust structures</p>
+            </div>
+            <div class="expertise-item">
+              <h4>International Tax Planning</h4>
+              <p>Cross-border tax optimization strategies and compliance with international regulations</p>
+            </div>
+            <div class="expertise-item">
+              <h4>Estate & Succession Planning</h4>
+              <p>Comprehensive wealth transfer and succession planning for families and businesses</p>
+            </div>
+            <div class="expertise-item">
+              <h4>Asset Protection</h4>
+              <p>Strategic asset protection through cross-border structures and legal frameworks</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-section">
+          <h2>Trust Structuring Expertise</h2>
+          <div class="trust-types">
+            <h4>Specialized Trust Structures:</h4>
+            <div class="trust-list">
+              <span class="trust-tag">Discretionary Trusts</span>
+              <span class="trust-tag">Charitable Trusts</span>
+              <span class="trust-tag">Purpose Trusts</span>
+              <span class="trust-tag">Protector Trusts</span>
+              <span class="trust-tag">Family Trusts</span>
+              <span class="trust-tag">Offshore Trusts</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-section">
+          <h2>Tax Planning Methodology</h2>
+          <div class="planning-process">
+            <h4>Comprehensive Planning Approach</h4>
+            <div class="process-steps">
+              <div class="process-step">
+                <div class="step-number">1</div>
+                <div>Wealth Assessment</div>
+              </div>
+              <div class="process-step">
+                <div class="step-number">2</div>
+                <div>Structure Design</div>
+              </div>
+              <div class="process-step">
+                <div class="step-number">3</div>
+                <div>Tax Optimization</div>
+              </div>
+              <div class="process-step">
+                <div class="step-number">4</div>
+                <div>Implementation</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-section">
+          <h2>International Jurisdictions</h2>
+          <p>Expertise in trust and tax structures across multiple jurisdictions including:</p>
+          <div class="jurisdictions">
+            <span class="jurisdiction-tag">Japan</span>
+            <span class="jurisdiction-tag">Singapore</span>
+            <span class="jurisdiction-tag">Hong Kong</span>
+            <span class="jurisdiction-tag">BVI</span>
+            <span class="jurisdiction-tag">Cayman Islands</span>
+            <span class="jurisdiction-tag">Switzerland</span>
+            <span class="jurisdiction-tag">UK</span>
+            <span class="jurisdiction-tag">USA</span>
+          </div>
+        </div>
+        
+        <div class="profile-section">
+          <h2>Languages</h2>
+          <div class="languages">
+            <span class="language-tag">Japanese (native)</span>
+            <span class="language-tag">English (fluent)</span>
+          </div>
+        </div>
+        
+        <div class="profile-section">
+          <h2>Professional Approach</h2>
+          <p>Kenji combines expert knowledge of trust law and international taxation with practical experience in asset protection, enabling him to deliver tailored and strategic advice to Sterling Legal Advisory LLP's clients worldwide. His meticulous approach to trust structuring and deep understanding of cross-border tax implications ensure optimal outcomes for clients seeking to preserve and grow their wealth across generations.</p>
+        </div>
+        
+        <div class="profile-section">
+          <h2>Contact</h2>
+          <p>Email: <a href="mailto:k.tanaka@sterlinglegal.uk">k.tanaka@sterlinglegal.uk</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
