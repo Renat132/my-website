@@ -53,7 +53,6 @@
         }
 
         html {
-            scroll-behavior: smooth;
             scroll-padding-top: 80px;
         }
 
@@ -1060,7 +1059,7 @@
             });
         }
 
-        // Scroll to section function
+        // НОВАЯ ФУНКЦИЯ ПЛАВНОГО СКРОЛЛА
         function scrollToSection(sectionId) {
             const element = document.getElementById(sectionId);
             if (!element) return;
@@ -1069,10 +1068,28 @@
             const elementPosition = element.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
+            // Плавный скролл с requestAnimationFrame
+            const startPosition = window.pageYOffset;
+            const distance = offsetPosition - startPosition;
+            const duration = 800;
+            let startTime = null;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const progress = Math.min(timeElapsed / duration, 1);
+                
+                // easing function для плавности
+                const easeInOutCubic = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                
+                window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
+                
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                }
+            }
+
+            requestAnimationFrame(animation);
         }
 
         // Show/hide scroll to top button
@@ -1188,9 +1205,6 @@
                     }, 1500);
                 });
             }
-
-            // УБИРАЕМ ВСЕ что мешает стандартному поведению браузера
-            // Браузер сам будет помнить позицию скролла
         });
     </script>
 </body>
