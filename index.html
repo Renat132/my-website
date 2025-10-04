@@ -1046,10 +1046,18 @@
     </footer>
 
     <script>
-        // ВКЛЮЧАЕМ стандартное поведение браузера
+        // РЕШЕНИЕ: Отключаем запоминание позиции скролла
         if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'auto';
+            history.scrollRestoration = 'manual';
         }
+
+        // Принудительно скроллим наверх при загрузке
+        window.addEventListener('load', function() {
+            // Небольшая задержка чтобы все успело загрузиться
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+            }, 100);
+        });
 
         // Scroll to top function
         function scrollToTop() {
@@ -1059,7 +1067,7 @@
             });
         }
 
-        // НОВАЯ ФУНКЦИЯ ПЛАВНОГО СКРОЛЛА
+        // ФУНКЦИЯ ПЛАВНОГО СКРОЛЛА
         function scrollToSection(sectionId) {
             const element = document.getElementById(sectionId);
             if (!element) return;
