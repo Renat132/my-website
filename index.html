@@ -1049,7 +1049,10 @@
     <script>
         // Убрать автоматический скролл при загрузке
         window.addEventListener('load', function() {
-            // Не скроллим автоматически
+            // Принудительно скроллим наверх при первой загрузке
+            if (!window.location.hash || window.location.hash === '#') {
+                window.scrollTo(0, 0);
+            }
         });
 
         // Отключить восстановление позиции скролла
@@ -1091,7 +1094,7 @@
         });
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Background Slider - ИСПРАВЛЕННЫЙ КОД
+            // Background Slider
             const backgrounds = document.querySelectorAll('.hero-bg');
             const controls = document.querySelectorAll('.bg-control');
             let currentBg = 0;
@@ -1136,7 +1139,7 @@
             heroSection.addEventListener('mouseenter', stopSlider);
             heroSection.addEventListener('mouseleave', startSlider);
 
-            // Mobile menu - ПРОСТОЙ И РАБОЧИЙ КОД
+            // Mobile menu
             const menuToggle = document.querySelector('.menu-toggle');
             const nav = document.querySelector('nav');
             
@@ -1194,18 +1197,13 @@
                 });
             }
 
-            // Обработка якоря при загрузке
-            setTimeout(() => {
-                const hash = window.location.hash;
-                if (hash && hash !== '#') {
-                    const targetElement = document.querySelector(hash);
-                    if (targetElement) {
-                        setTimeout(() => {
-                            scrollToSection(hash.substring(1));
-                        }, 100);
-                    }
-                }
-            }, 50);
+            // Убираем автоматический скролл к якорю при загрузке
+            // Теперь сайт всегда открывается с начала
+        });
+
+        // Предотвратить скролл при перезагрузке
+        window.addEventListener('beforeunload', function() {
+            window.scrollTo(0, 0);
         });
     </script>
 </body>
