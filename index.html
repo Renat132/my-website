@@ -54,7 +54,6 @@
 
         html {
             scroll-padding-top: 80px;
-            scroll-behavior: smooth;
         }
 
         body {
@@ -1047,10 +1046,25 @@
     </footer>
 
     <script>
-        // Enable standard browser scroll restoration
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'auto';
-        }
+        // УМНОЕ управление скроллом - баланс между начальной загрузкой и навигацией
+        let isInitialLoad = true;
+        let hasUserInteracted = false;
+
+        // При загрузке страницы
+        window.addEventListener('load', function() {
+            // Если это первая загрузка (не навигация "Назад") - скроллим наверх
+            if (isInitialLoad && !window.location.hash) {
+                setTimeout(() => {
+                    window.scrollTo(0, 0);
+                }, 100);
+            }
+            isInitialLoad = false;
+        });
+
+        // Отслеживаем пользовательские взаимодействия
+        document.addEventListener('click', function() {
+            hasUserInteracted = true;
+        });
 
         // Scroll to top function
         function scrollToTop() {
@@ -1068,6 +1082,11 @@
             const headerHeight = document.querySelector('header').offsetHeight;
             const elementPosition = element.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+            // Обновляем URL только если пользователь явно кликнул
+            if (hasUserInteracted) {
+                history.replaceState(null, null, `#${sectionId}`);
+            }
 
             const startPosition = window.pageYOffset;
             const distance = offsetPosition - startPosition;
@@ -1102,13 +1121,6 @@
         });
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Scroll to top only on initial load without hash
-            if (!window.location.hash) {
-                setTimeout(() => {
-                    window.scrollTo(0, 0);
-                }, 10);
-            }
-
             // Background Slider
             const backgrounds = document.querySelectorAll('.hero-bg');
             const controls = document.querySelectorAll('.bg-control');
@@ -1182,27 +1194,17 @@
                 });
             });
 
-            // Smooth scrolling for navigation with URL update
+            // Smooth scrolling for navigation
             document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     if (targetId === '#') return;
                     
-                    // Update URL
-                    history.pushState(null, null, targetId);
+                    // Отмечаем что пользователь взаимодействовал
+                    hasUserInteracted = true;
                     scrollToSection(targetId.substring(1));
                 });
-            });
-
-            // Handle browser back/forward buttons
-            window.addEventListener('popstate', function(event) {
-                if (window.location.hash) {
-                    const targetId = window.location.hash.substring(1);
-                    scrollToSection(targetId);
-                } else {
-                    scrollToSection('hero');
-                }
             });
 
             // Form handling
@@ -1226,6 +1228,14 @@
                         }, 2000);
                     }, 1500);
                 });
+            }
+
+            // Если в URL есть якорь при загрузке - плавно скроллим к нему
+            if (window.location.hash) {
+                setTimeout(() => {
+                    const targetId = window.location.hash.substring(1);
+                    scrollToSection(targetId);
+                }, 500);
             }
         });
     </script>
