@@ -968,37 +968,37 @@
         <section id="team" class="container">
             <h2 class="section-title">Our Team</h2>
             <div class="team-grid">
-                <div class="team-member" onclick="window.location.href='helen-rowe.html?back=helen'" id="team-helen">
+                <div class="team-member" onclick="window.location.href='helen-rowe.html'" id="team-helen">
                     <img src="HelenMRowe.jpg" alt="Helen M. Rowe" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/002147/ffffff?text=HM'">
                     <h3>Helen M. Rowe</h3>
                     <p>Senior Lawyer — International Disputes & Arbitration</p>
                 </div>
-                <div class="team-member" onclick="window.location.href='anna-ivanova.html?back=anna'" id="team-anna">
+                <div class="team-member" onclick="window.location.href='anna-ivanova.html'" id="team-anna">
                     <img src="AnnaIvanova.jpg" alt="Anna Ivanova" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/002147/ffffff?text=AI'">
                     <h3>Anna Ivanova</h3>
                     <p>Associate Lawyer — Financial Disputes & Asset Protection</p>
                 </div>
-                <div class="team-member" onclick="window.location.href='sophie-williams.html?back=sophie'" id="team-sophie">
+                <div class="team-member" onclick="window.location.href='sophie-williams.html'" id="team-sophie">
                     <img src="SophieWilliams.jpg" alt="Sophie Williams" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/002147/ffffff?text=SW'">
                     <h3>Sophie Williams</h3>
                     <p>Partner — International Transactions & Investments</p>
                 </div>
-                <div class="team-member" onclick="window.location.href='maria-petrova.html?back=maria'" id="team-maria">
+                <div class="team-member" onclick="window.location.href='maria-petrova.html'" id="team-maria">
                     <img src="MariaPetrova.jpg" alt="Maria Petrova" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/002147/ffffff?text=MP'">
                     <h3>Maria Petrova</h3>
                     <p>Counsel — Arbitration & Offshore Jurisdictions</p>
                 </div>
-                <div class="team-member" onclick="window.location.href='david-smith.html?back=david'" id="team-david">
+                <div class="team-member" onclick="window.location.href='david-smith.html'" id="team-david">
                     <img src="DavidSmith.jpg" alt="David Smith" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/002147/ffffff?text=DS'">
                     <h3>David Smith</h3>
                     <p>Partner — Corporate Investigations & Compliance</p>
                 </div>
-                <div class="team-member" onclick="window.location.href='kenji-tanaka.html?back=kenji'" id="team-kenji">
+                <div class="team-member" onclick="window.location.href='kenji-tanaka.html'" id="team-kenji">
                     <img src="KenjiTanaka.jpg" alt="Kenji Tanaka" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/002147/ffffff?text=KT'">
                     <h3>Kenji Tanaka</h3>
                     <p>Of Counsel — Trust Structures & Tax Planning</p>
                 </div>
-                <div class="team-member" onclick="window.location.href='alexei-morozov.html?back=alexei'" id="team-alexei">
+                <div class="team-member" onclick="window.location.href='alexei-morozov.html'" id="team-alexei">
                     <img src="AlexeiMorozov.jpg" alt="Alexei Morozov" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/002147/ffffff?text=AM'">
                     <h3>Alexei Morozov</h3>
                     <p>Associate — Litigation & Asset Recovery</p>
@@ -1047,17 +1047,9 @@
     </footer>
 
     <script>
-        // Убрать автоматический скролл при загрузке
-        window.addEventListener('load', function() {
-            // Принудительно скроллим наверх при первой загрузке
-            if (!window.location.hash || window.location.hash === '#') {
-                window.scrollTo(0, 0);
-            }
-        });
-
-        // Отключить восстановление позиции скролла
+        // ВКЛЮЧАЕМ стандартное поведение браузера
         if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
+            history.scrollRestoration = 'auto';
         }
 
         // Scroll to top function
@@ -1197,13 +1189,8 @@
                 });
             }
 
-            // Убираем автоматический скролл к якорю при загрузке
-            // Теперь сайт всегда открывается с начала
-        });
-
-        // Предотвратить скролл при перезагрузке
-        window.addEventListener('beforeunload', function() {
-            window.scrollTo(0, 0);
+            // УБИРАЕМ ВСЕ что мешает стандартному поведению браузера
+            // Браузер сам будет помнить позицию скролла
         });
     </script>
 </body>
