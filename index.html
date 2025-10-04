@@ -1046,20 +1046,12 @@
     </footer>
 
     <script>
-        // РЕШЕНИЕ: Отключаем запоминание позиции скролла
+        // ВКЛЮЧАЕМ стандартное поведение браузера для кнопки "Назад"
         if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
+            history.scrollRestoration = 'auto';
         }
 
-        // Принудительно скроллим наверх при загрузке
-        window.addEventListener('load', function() {
-            // Небольшая задержка чтобы все успело загрузиться
-            setTimeout(() => {
-                window.scrollTo(0, 0);
-            }, 100);
-        });
-
-        // Scroll to top function
+        // Scroll to top function - ТОЛЬКО для клика по кнопке
         function scrollToTop() {
             window.scrollTo({
                 top: 0,
