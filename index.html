@@ -40,7 +40,7 @@
             --border-color: #ddd;
             --shadow: 0 4px 12px rgba(0,0,0,0.1);
             --shadow-hover: 0 8px 25px rgba(0,0,0,0.15);
-            --transition: all 0.3s ease;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --border-radius: 8px;
             --container-width: 1200px;
         }
@@ -165,9 +165,10 @@
             border: none;
             padding: 0.5rem;
             width: 30px;
-            height: 30px;
+            height: 30px;        
             justify-content: center;
             align-items: center;
+            z-index: 1002;
         }
 
         .menu-toggle span {
@@ -177,18 +178,20 @@
             margin: 2px 0;
             border-radius: 2px;
             transition: var(--transition);
+            transform-origin: center;
         }
 
         .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
+            transform: rotate(45deg) translate(5px, 5px);
         }
 
         .menu-toggle.active span:nth-child(2) {
             opacity: 0;
+            transform: scale(0);
         }
 
         .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
+            transform: rotate(-45deg) translate(7px, -6px);
         }
 
         @media (max-width: 768px) {
@@ -200,14 +203,16 @@
                 display: none;
                 flex-direction: column;
                 background: var(--primary-dark);
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 80px;
                 left: 0;
                 right: 0;
+                bottom: 0;
                 text-align: center;
-                padding: 1rem 0;
+                padding: 2rem 0;
                 box-shadow: 0 5px 20px rgba(0,0,0,0.2);
                 gap: 0;
+                overflow-y: auto;
             }
 
             nav.active {
@@ -215,9 +220,16 @@
             }
 
             nav a {
-                padding: 1rem 2rem;
+                padding: 1.5rem 2rem;
                 width: 100%;
                 border-bottom: 1px solid rgba(255,255,255,0.1);
+                font-size: 1.1rem;
+                transition: all 0.3s ease;
+            }
+
+            nav a:hover {
+                background: rgba(255,255,255,0.1);
+                color: var(--accent-color);
             }
 
             nav a:last-child {
@@ -226,6 +238,8 @@
 
             .menu-toggle {
                 display: flex;
+                position: relative;
+                z-index: 1002;
             }
         }
 
@@ -278,20 +292,30 @@
         }
 
         .hero-bg-1 {
-            background-image: url('Fon.jpg'), linear-gradient(135deg, #002147, #00152e);
+            background-image: url('Fon.jpg');
         }
 
         .hero-bg-2 {
-            background-image: url('Fon1.jpg'), linear-gradient(135deg, #002147, #00152e);
+            background-image: url('Fon1.jpg');
         }
 
         .hero-bg-3 {
-            background-image: url('Fon2.jpg'), linear-gradient(135deg, #002147, #00152e);
+            background-image: url('Fon2.jpg');
         }
 
         .hero-content {
             max-width: 800px;
             z-index: 1;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .hero h2 {
@@ -944,37 +968,37 @@
         <section id="team" class="container">
             <h2 class="section-title">Our Team</h2>
             <div class="team-grid">
-                <div class="team-member" onclick="window.location.href='helen-rowe.html'">
+                <div class="team-member" onclick="window.location.href='helen-rowe.html?back=helen'" id="team-helen">
                     <img src="HelenMRowe.jpg" alt="Helen M. Rowe" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/002147/ffffff?text=HM'">
                     <h3>Helen M. Rowe</h3>
                     <p>Senior Lawyer — International Disputes & Arbitration</p>
                 </div>
-                <div class="team-member" onclick="window.location.href='anna-ivanova.html'">
+                <div class="team-member" onclick="window.location.href='anna-ivanova.html?back=anna'" id="team-anna">
                     <img src="AnnaIvanova.jpg" alt="Anna Ivanova" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/002147/ffffff?text=AI'">
                     <h3>Anna Ivanova</h3>
                     <p>Associate Lawyer — Financial Disputes & Asset Protection</p>
                 </div>
-                <div class="team-member" onclick="window.location.href='sophie-williams.html'">
+                <div class="team-member" onclick="window.location.href='sophie-williams.html?back=sophie'" id="team-sophie">
                     <img src="SophieWilliams.jpg" alt="Sophie Williams" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/002147/ffffff?text=SW'">
                     <h3>Sophie Williams</h3>
                     <p>Partner — International Transactions & Investments</p>
                 </div>
-                <div class="team-member" onclick="window.location.href='maria-petrova.html'">
+                <div class="team-member" onclick="window.location.href='maria-petrova.html?back=maria'" id="team-maria">
                     <img src="MariaPetrova.jpg" alt="Maria Petrova" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/002147/ffffff?text=MP'">
                     <h3>Maria Petrova</h3>
                     <p>Counsel — Arbitration & Offshore Jurisdictions</p>
                 </div>
-                <div class="team-member" onclick="window.location.href='david-smith.html'">
+                <div class="team-member" onclick="window.location.href='david-smith.html?back=david'" id="team-david">
                     <img src="DavidSmith.jpg" alt="David Smith" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/002147/ffffff?text=DS'">
                     <h3>David Smith</h3>
                     <p>Partner — Corporate Investigations & Compliance</p>
                 </div>
-                <div class="team-member" onclick="window.location.href='kenji-tanaka.html'">
+                <div class="team-member" onclick="window.location.href='kenji-tanaka.html?back=kenji'" id="team-kenji">
                     <img src="KenjiTanaka.jpg" alt="Kenji Tanaka" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/002147/ffffff?text=KT'">
                     <h3>Kenji Tanaka</h3>
                     <p>Of Counsel — Trust Structures & Tax Planning</p>
                 </div>
-                <div class="team-member" onclick="window.location.href='alexei-morozov.html'">
+                <div class="team-member" onclick="window.location.href='alexei-morozov.html?back=alexei'" id="team-alexei">
                     <img src="AlexeiMorozov.jpg" alt="Alexei Morozov" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/002147/ffffff?text=AM'">
                     <h3>Alexei Morozov</h3>
                     <p>Associate — Litigation & Asset Recovery</p>
@@ -1023,14 +1047,12 @@
     </footer>
 
     <script>
-        // Initialize page at top
+        // Убрать автоматический скролл при загрузке
         window.addEventListener('load', function() {
-            window.scrollTo(0, 0);
-            document.documentElement.scrollTop = 0;
-            document.body.scrollTop = 0;
+            // Не скроллим автоматически
         });
 
-        // Disable scroll restoration
+        // Отключить восстановление позиции скролла
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
@@ -1046,6 +1068,8 @@
         // Scroll to section function
         function scrollToSection(sectionId) {
             const element = document.getElementById(sectionId);
+            if (!element) return;
+            
             const headerHeight = document.querySelector('header').offsetHeight;
             const elementPosition = element.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
@@ -1067,7 +1091,7 @@
         });
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Background Slider
+            // Background Slider - ИСПРАВЛЕННЫЙ КОД
             const backgrounds = document.querySelectorAll('.hero-bg');
             const controls = document.querySelectorAll('.bg-control');
             let currentBg = 0;
@@ -1097,6 +1121,9 @@
                 clearInterval(slideInterval);
             }
 
+            // Запускаем слайдер сразу
+            startSlider();
+
             controls.forEach((control, index) => {
                 control.addEventListener('click', () => {
                     stopSlider();
@@ -1109,19 +1136,22 @@
             heroSection.addEventListener('mouseenter', stopSlider);
             heroSection.addEventListener('mouseleave', startSlider);
 
-            startSlider();
-
-            // Mobile menu
+            // Mobile menu - ПРОСТОЙ И РАБОЧИЙ КОД
             const menuToggle = document.querySelector('.menu-toggle');
             const nav = document.querySelector('nav');
             
-            menuToggle.addEventListener('click', function() {
-                nav.classList.toggle('active');
-                menuToggle.classList.toggle('active');
-                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-                menuToggle.setAttribute('aria-expanded', !isExpanded);
-            });
-            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    nav.classList.toggle('active');
+                    
+                    // Обновляем aria-expanded
+                    const isExpanded = this.classList.contains('active');
+                    this.setAttribute('aria-expanded', isExpanded);
+                });
+            }
+
+            // Закрытие меню при клике на ссылку
             const navLinks = document.querySelectorAll('nav a');
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
@@ -1164,26 +1194,19 @@
                 });
             }
 
-            // Ensure page starts at top
+            // Обработка якоря при загрузке
             setTimeout(() => {
-                window.scrollTo(0, 0);
-            }, 100);
+                const hash = window.location.hash;
+                if (hash && hash !== '#') {
+                    const targetElement = document.querySelector(hash);
+                    if (targetElement) {
+                        setTimeout(() => {
+                            scrollToSection(hash.substring(1));
+                        }, 100);
+                    }
+                }
+            }, 50);
         });
-
-        // Final guarantee - scroll to top after everything loads
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                window.scrollTo(0, 0);
-            }, 500);
-        });    </div> <!-- какой-то контейнер -->
-  </div> <!-- закрытие team-profile -->
-     </div> <!-- какой-то контейнер -->
-  </div> <!-- закрытие team-profile -->
-            
-  <script>
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-  </script>
+    </script>
 </body>
 </html>
