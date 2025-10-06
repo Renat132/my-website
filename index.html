@@ -742,50 +742,64 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        
-        .social-links a {
-            font-family: Georgia, serif;
-            display: inline-block;
-            margin: 0 1rem;
-            padding: 0.75rem 1.5rem;
-            background: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-            font-weight: 500;
-        }
-
-       .social-links a:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-        }
-
         /* Footer */
         footer {
             background: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 5rem 2rem; /* Увеличен паддинг для большего синего фона */
         }
 
-        footer p {
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-contact div {
+            text-align: left;
+        }
+
+        .footer-contact h3 {
             font-family: Georgia, serif;
             margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .footer-contact p {
+            font-family: Georgia, serif;
+            margin-bottom: 0.5rem;
             opacity: 0.9;
         }
 
-        footer a {
+        .footer-contact a {
             font-family: Georgia, serif;
             color: #c0c0c0;
-            margin: 0 1rem;
             transition: var(--transition);
             font-weight: 500;
         }
 
-        footer a:hover {
+        .footer-contact a:hover {
             color: white;
+        }
+
+        footer p.copyright {
+            font-family: Georgia, serif;
+            margin-top: 2rem;
+            opacity: 0.9;
+            font-size: 1rem;
         }
 
         /* Loading States */
@@ -1048,20 +1062,27 @@
                     </div>
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
-                <div class="social-links">
-                    <a href="https://wa.me/447700900123" target="_blank" rel="noopener">WhatsApp</a>
-                    <a href="https://t.me/SterlingLegal" target="_blank" rel="noopener">Telegram</a>
-                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Sterling Legal Advisory LLP — All Rights Reserved</p>
-        <p>
-            <a href="privacy.html">Privacy Policy</a> | 
-            <a href="legal.html">Legal Notice</a>
-        </p>
+        <div class="footer-content">
+            <div class="footer-contact">
+                <div>
+                    <h3>Contact Information</h3>
+                    <p>Email: <a href="mailto:investigations@sterlinglegal.uk">investigations@sterlinglegal.uk</a></p>
+                    <p>Phone: +44 (0) 20 7123 4567</p>
+                </div>
+                <div>
+                    <h3>Office Address</h3>
+                    <p>30 Crown Place</p>
+                    <p>London, EC2A 4EB</p>
+                    <p>United Kingdom</p>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2025 Sterling Legal Advisory LLP — All Rights Reserved</p>
+        </div>
     </footer>
 
     <script>
